@@ -32,7 +32,7 @@ python3 manage.py migrate
 
 python3 manage.py showmigrations
 
-# Insert records
+# Insert records by command
 
 python3 manage.py shell
 
