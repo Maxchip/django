@@ -36,3 +36,17 @@ pipenv install django-debug-toolbar
 # Create a New App
 
 python3 manage.py startapp playground
+
+# Migration
+
+python3 manage.py migrate
+
+python3 manage.py showmigrations
+
+python3 manage.py dbshell
+
+python3 manage.py makemigrations
+
+# Create Admin User
+
+python3 manage.py createsuperuser
