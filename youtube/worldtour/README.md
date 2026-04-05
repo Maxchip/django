@@ -43,3 +43,7 @@ to1.save()
 # Create Admin User
 
 python3 manage.py createsuperuser
+
+# Link
+
+https://www.youtube.com/watch?v=kJJx77PYMFA&list=PL4cUxeGkcC9iqfAag3a_BKEX1N43uJutw&index=8
