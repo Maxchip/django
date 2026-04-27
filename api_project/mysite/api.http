@@ -6,6 +6,7 @@ GET http://localhost:8000/api/blogposts/2/ HTTP/1.1
 ###
 POST http://localhost:8000/api/blogposts/ HTTP/1.1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzc3Mjk4NjI3LCJpYXQiOjE3NzcyOTgzMjcsImp0aSI6ImU1ODZjYzc1MTRmNzQyNDg4MmMwNDVlNGE4Mjk3MjM5IiwidXNlcl9pZCI6IjEifQ.CgkRliehI1b8DZVD_bvg8PAx7aioWBpSKeKDFkevXNE
 
 {
     "title": "My First Blog Post",
@@ -19,4 +20,12 @@ Content-Type: application/json
 {
 	"username": "admin",
 	"password": "test"
+}
+
+###
+POST http://localhost:8000/api/token/verify/ HTTP/1.1
+Content-Type: application/json
+
+{
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc3NzM4NDAxNCwiaWF0IjoxNzc3Mjk3NjE0LCJqdGkiOiJmZWMxYmZhYWJmNWY0NGNlYWI1ZWI1OWRiYTQ2MzgwZCIsInVzZXJfaWQiOiIxIn0.-o3zMewpcendnp4OSPqQEiqrCT_YulGen037ibPMizQ"
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -82,16 +83,6 @@ DATABASES = {
     }
 }
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
@@ -127,3 +118,43 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        #'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# Swagger UI settings
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'IBEM API',
+    'TAGS': [
+        {'name': 'auth', 'description': 'Authentication — login, logout, and session management.'},
+        {'name': 'energy', 'description': 'Energy market price queries (OMIE spot prices and access tariffs).'},
+        {'name': 'optimizer', 'description': 'BESS optimizer — schedule and retrieve battery optimization runs.'},
+        {'name': 'pt', 'description': 'Power Transformer monitoring and forecasting.'},
+        {'name': 'pv', 'description': 'Photovoltaic solar panel monitoring and forecasting.'},
+    ],
+    'DESCRIPTION': (
+        'INESCTEC Building Energy Management System API.\n\n'
+        'Automatically ingests 5-minute energy readings from external sources, '
+        'aggregates them into 15-minute time-series buckets, and generates accurate '
+        '24-hour demand forecasts using XGBoost machine learning models.\n\n'
+        'Features real-time data synchronization, flexible time-range queries, '
+        'and comprehensive KPI analytics for energy management and optimization.'
+    ),
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'SERVE_PUBLIC': False,
+    'SWAGGER_UI_SETTINGS': {
+        'persistAuthorization': True,
+        'docExpansion': 'list',
+        'filter': True,
+    },
+}
