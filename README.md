@@ -50,3 +50,31 @@ python3 manage.py makemigrations
 # Create Admin User
 
 python3 manage.py createsuperuser
+
+# api_project
+
+-- Load the env
+pipenv shell
+
+-- Install packages
+pip install -r requirements.txt
+
+-- Create a new main project
+django-admin startproject mysite
+
+or
+
+python3 -m django startproject mysite
+
+-- Create the api project
+cd mysite
+python3 manage.py startapp api
+
+-- Create model and urls
+
+-- Create database
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+-- Run Server
+python3 manage.py runserver
