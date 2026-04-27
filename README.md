@@ -78,3 +78,16 @@ python3 manage.py migrate
 
 -- Run Server
 python3 manage.py runserver
+
+-- Install JWT Authentication
+
+Add to the requirements.txt this
+djangorestframework-simplejwt
+
+pip install -r requirements.txt
+
+python3 manage.py migrate
+
+-- Create admin account
+
+python3 manage.py createsuperuser
