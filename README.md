@@ -91,3 +91,15 @@ python3 manage.py migrate
 -- Create admin account
 
 python3 manage.py createsuperuser
+
+-- To start
+
+pipenv shell
+python3 manage.py runserver
+
+-- Link
+
+http://localhost:8000/admin/
+http://localhost:8000/api/schema/swagger-ui/
+http://localhost:8000/api/schema/redoc/
+

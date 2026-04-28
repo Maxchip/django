@@ -122,7 +122,7 @@ STATIC_URL = 'static/'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         #'rest_framework.permissions.AllowAny',
@@ -133,21 +133,10 @@ REST_FRAMEWORK = {
 
 # Swagger UI settings
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'IBEM API',
-    'TAGS': [
-        {'name': 'auth', 'description': 'Authentication — login, logout, and session management.'},
-        {'name': 'energy', 'description': 'Energy market price queries (OMIE spot prices and access tariffs).'},
-        {'name': 'optimizer', 'description': 'BESS optimizer — schedule and retrieve battery optimization runs.'},
-        {'name': 'pt', 'description': 'Power Transformer monitoring and forecasting.'},
-        {'name': 'pv', 'description': 'Photovoltaic solar panel monitoring and forecasting.'},
-    ],
+    'TITLE': 'API Test',
     'DESCRIPTION': (
-        'INESCTEC Building Energy Management System API.\n\n'
-        'Automatically ingests 5-minute energy readings from external sources, '
-        'aggregates them into 15-minute time-series buckets, and generates accurate '
-        '24-hour demand forecasts using XGBoost machine learning models.\n\n'
-        'Features real-time data synchronization, flexible time-range queries, '
-        'and comprehensive KPI analytics for energy management and optimization.'
+        'This API allows you to manage blog posts, including creating new posts, retrieving existing posts, updating posts, and deleting posts. \n\n'
+        'The API is designed to be simple and intuitive, making it easy for developers to integrate with their applications. Authentication is required for all operations, ensuring that only authorized users can access and modify the blog posts.'
     ),
     'VERSION': '1.0.0',
     'SERVE_INCLUDE_SCHEMA': False,
